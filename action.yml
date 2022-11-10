@@ -151,8 +151,8 @@ runs:
         # systemd-networkd greets me with 'Temporary failure in name
         # resolution' on Bionic when using a hostname instead of an IP address
         # for endpoint. God knows why!
-        #via_systemd
-        via_wg_tools
+        via_systemd
+        #via_wg_tools
       shell: bash
 
 branding:
