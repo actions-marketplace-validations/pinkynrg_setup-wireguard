@@ -146,13 +146,16 @@ runs:
             fi
 
             sudo ip link set "$ifname" up
+            
+            # Add routes for allowed_ips
+            for i in ${allowed_ips//,/ }; do sudo ip route replace "$i" dev "$ifname"; done
         }
 
         # systemd-networkd greets me with 'Temporary failure in name
         # resolution' on Bionic when using a hostname instead of an IP address
         # for endpoint. God knows why!
-        via_systemd
-        #via_wg_tools
+        #via_systemd
+        via_wg_tools
       shell: bash
 
 branding:
