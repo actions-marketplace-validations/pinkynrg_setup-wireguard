@@ -148,7 +148,7 @@ runs:
             sudo ip link set "$ifname" up
             
             # Add routes for allowed_ips
-            for i in ${allowed_ips//,/ }; do sudo ip route replace "$i" dev "$ifname"; done
+            sudo ip route replace "$ips" dev "$ifname"
         }
 
         # systemd-networkd greets me with 'Temporary failure in name
